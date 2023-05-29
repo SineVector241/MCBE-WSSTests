@@ -4,6 +4,7 @@ using System.Text.Json;
 
 namespace MCBE_WSS
 {
+    //https://gist.github.com/jocopa3/5f718f4198f1ea91a37e3a9da468675c
     public enum EventType
     {
         //Player Events
