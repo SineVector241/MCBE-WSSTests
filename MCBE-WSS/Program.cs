@@ -28,11 +28,14 @@ namespace MCBE_WSS
             while (true)
             {
                 Console.ReadLine();
-                var packet = new EventBuilder().SetEventType(EventType.PlayerTransform).Build();
-                Console.WriteLine(packet);
-                foreach (var socket in allSockets.ToList())
+                foreach (var ev in Enum.GetValues<EventType>())
                 {
-                    socket.Send(packet).Wait();
+                    var packet = new EventBuilder().SetEventType(ev).Build();
+                    Console.WriteLine(packet);
+                    foreach (var socket in allSockets.ToList())
+                    {
+                        socket.Send(packet).Wait();
+                    }
                 }
             }
         }
